@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaris Cosméticos</title>
+    <meta name="description" content="Evaris Cosméticos: skincare, maquiagem, perfumaria e cabelos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/index.css">
 </head>
 <body>
-    <img src="logoEvaris.png" style="width: 400px; text-align: center;">
+    <header>
+        <a href="#inicio" aria-label="Evaris Cosméticos, início">
+            <img src="logoEvaris.png" alt="Evaris Cosméticos">
+        </a>
+        <nav aria-label="Navegação principal">
+            <ul>
+                <li><a href="#categorias">Categorias</a></li>
+                <li><a href="#oferta">Oferta</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="inicio">
+        <section aria-labelledby="titulo-hero">
+            <h1 id="titulo-hero">Cosméticos para realçar o que é seu</h1>
+            <p>Skincare, maquiagem, perfumaria e cabelos selecionados para o seu dia a dia.</p>
+            <a href="#categorias" class="botao">Ver categorias</a>
+        </section>
+
+        <section id="categorias" aria-labelledby="titulo-categorias">
+            <h2 id="titulo-categorias">Categorias</h2>
+            <article>
+                <h3>Skincare</h3>
+                <p>Limpeza, hidratação e proteção para cada tipo de pele.</p>
+                <a href="#">Ver skincare</a>
+            </article>
+            <article>
+                <h3>Maquiagem</h3>
+                <p>Bases, batons e sombras com cor e acabamento duradouros.</p>
+                <a href="#">Ver maquiagem</a>
+            </article>
+            <article>
+                <h3>Perfumaria</h3>
+                <p>Fragrâncias marcantes para presentear ou para usar todo dia.</p>
+                <a href="#">Ver perfumaria</a>
+            </article>
+            <article>
+                <h3>Cabelos</h3>
+                <p>Shampoos, máscaras e finalizadores para brilho e maciez.</p>
+                <a href="#">Ver cabelos</a>
+            </article>
+        </section>
+
+        <aside id="oferta" aria-labelledby="titulo-oferta">
+            <h2 id="titulo-oferta">10% de desconto na primeira compra</h2>
+            <p>Cadastre-se e receba o cupom por e-mail.</p>
+            <a href="#contato" class="botao">Quero meu cupom</a>
+        </aside>
+    </main>
+
+    <footer id="contato">
+        <address>
+            <p>Evaris Cosméticos</p>
+            <p><a href="mailto:contato@evaris.com.br">contato@evaris.com.br</a></p>
+            <p><a href="https://instagram.com/" rel="noopener">Instagram</a></p>
+        </address>
+        <small>&copy; 2026 Evaris Cosméticos. Todos os direitos reservados.</small>
+    </footer>
 </body>
 </html>

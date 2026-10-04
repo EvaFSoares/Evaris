@@ -1,3 +1,163 @@
-body {
+/* ===== Variáveis: paleta dourado e preto ===== */
+:root {
+    --preto: #000000;
+    --grafite: #14110c;
+    --ouro: #c9a24b;
+    --ouro-claro: #ecd08a;
+    --ouro-escuro: #8f6f26;
+    --marfim: #f3ead6;
 
+    --fonte-titulo: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --fonte-texto: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===== Base (mobile primeiro) ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--preto);
+    color: var(--marfim);
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--ouro-claro); }
+a:hover { color: var(--ouro); }
+a:focus-visible { outline: 2px solid var(--ouro-claro); outline-offset: 3px; }
+
+h1, h2, h3 {
+    margin: 0 0 0.5em;
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ouro-claro);
+}
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+p { margin: 0 0 1rem; max-width: 60ch; }
+
+/* ===== Cabeçalho e navegação ===== */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--ouro-escuro);
+    background: var(--preto);
+}
+header img { width: 100%; max-width: 180px; }
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+nav a { text-decoration: none; color: var(--marfim); padding: 0.25rem 0; }
+nav a:hover { color: var(--ouro); border-bottom: 1px solid var(--ouro); }
+
+/* ===== Botão (link com aparência de botão) ===== */
+.botao {
+    display: inline-block;
+    padding: 0.8rem 1.75rem;
+    background: var(--ouro);
+    color: var(--preto);
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s;
+}
+.botao:hover { background: var(--ouro-claro); color: var(--preto); }
+
+/* ===== Seções ===== */
+main > section, main > aside { padding: 3rem 1rem; }
+
+main > section:first-child {
+    text-align: center;
+    padding-block: 4rem;
+    background: radial-gradient(ellipse at top, var(--grafite), var(--preto) 70%);
+}
+main > section:first-child p { margin-inline: auto; }
+
+#categorias {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+#categorias h2 { margin-bottom: 0.25em; }
+
+article {
+    padding: 1.5rem;
+    background: var(--grafite);
+    border: 1px solid var(--ouro-escuro);
+    transition: border-color 0.2s;
+}
+article:hover { border-color: var(--ouro-claro); }
+
+aside {
+    text-align: center;
+    background: var(--ouro);
+    color: var(--preto);
+}
+aside h2 { color: var(--preto); }
+aside p { margin-inline: auto; }
+aside .botao { background: var(--preto); color: var(--ouro-claro); }
+aside .botao:hover { background: var(--grafite); color: var(--ouro-claro); }
+aside a:focus-visible { outline-color: var(--preto); }
+
+/* ===== Rodapé ===== */
+footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid var(--ouro-escuro);
+}
+address { font-style: normal; }
+address p { margin-inline: auto; margin-bottom: 0.25rem; }
+footer small { display: block; margin-top: 1.5rem; color: var(--ouro-escuro); }
+
+/* =====================================================
+   MEDIA QUERIES (mobile primeiro: min-width)
+   O CSS acima vale para telas pequenas. Cada bloco
+   abaixo só entra quando a tela atinge a largura indicada.
+   ===================================================== */
+
+/* Tablet: a partir de 600px, categorias em 2 colunas */
+@media (min-width: 600px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.25rem; }
+    #categorias { grid-template-columns: repeat(2, 1fr); }
+    #categorias h2 { grid-column: 1 / -1; }
+}
+
+/* Notebook: a partir de 900px, cabeçalho em linha */
+@media (min-width: 900px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding-inline: 3rem;
+    }
+    header img { max-width: 220px; }
+    main > section, main > aside { padding-inline: 3rem; }
+    main > section:first-child { padding-block: 6rem; }
+    h1 { font-size: 3.75rem; }
+}
+
+/* Desktop: a partir de 1200px, categorias em 4 colunas */
+@media (min-width: 1200px) {
+    #categorias { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Preferência do sistema: sem animações para quem pede */
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
 }
